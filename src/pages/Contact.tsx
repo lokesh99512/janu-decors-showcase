@@ -2,20 +2,6 @@ import { Phone, Mail, MapPin } from "lucide-react";
 
 const Contact = () => {
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const { name, phone, eventType, message } = form;
-    if (!name.trim() || !phone.trim()) {
-      toast({ title: "Please fill required fields", variant: "destructive" });
-      return;
-    }
-    const waText = encodeURIComponent(
-      `Hi Janu Decors!\n\nName: ${name}\nPhone: ${phone}\nEvent: ${eventType}\nMessage: ${message}`
-    );
-    window.open(`https://wa.me/918197051073?text=${waText}`, "_blank");
-    toast({ title: "Redirecting to WhatsApp..." });
-  };
-
   return (
     <>
       <section className="py-16 md:py-24 bg-gradient-rose">
