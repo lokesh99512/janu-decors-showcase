@@ -1,13 +1,6 @@
-import { useState } from "react";
-import { Phone, Mail, MapPin, Send } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
+import { Phone, Mail, MapPin } from "lucide-react";
 
 const Contact = () => {
-  const { toast } = useToast();
-  const [form, setForm] = useState({ name: "", phone: "", eventType: "", message: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
