@@ -40,10 +40,20 @@ import galleryBalloonArt from "@/assets/gallery-balloon-art.jpg";
 import galleryPujaSetup from "@/assets/gallery-puja-setup.jpg";
 import galleryNamingCeremony from "@/assets/gallery-naming-ceremony.jpg";
 import galleryGreenSofa from "@/assets/gallery-green-sofa.jpg";
+import galleryFlowerDoor2 from "@/assets/gallery-flower-door2.jpg";
+import galleryRangoliPeacock from "@/assets/gallery-rangoli-peacock.jpg";
+import galleryTwinsBirthday from "@/assets/gallery-twins-birthday.jpg";
 
 type Category = "All" | "Wedding" | "Birthday" | "Baby Shower" | "Others";
 
-const images: { src: string; alt: string; category: Category[] }[] = [
+type GalleryItem = {
+  src: string;
+  alt: string;
+  category: Category[];
+  type?: "image" | "video";
+};
+
+const items: GalleryItem[] = [
   { src: weddingImg, alt: "Wedding stage decoration", category: ["Wedding"] },
   { src: gallery1, alt: "Engagement ceremony decoration", category: ["Wedding"] },
   { src: gallery4, alt: "Grand wedding reception", category: ["Wedding"] },
@@ -65,6 +75,7 @@ const images: { src: string; alt: string; category: Category[] }[] = [
   { src: galleryGreenSofa, alt: "Tropical green leaf sofa decoration", category: ["Wedding"] },
   { src: galleryKrishnaStage, alt: "Krishna theme decoration", category: ["Wedding"] },
   { src: galleryPujaSetup, alt: "Traditional puja ceremony setup", category: ["Wedding"] },
+  { src: "/videos/decoration-showcase.mp4", alt: "Decoration showcase video", category: ["Wedding"], type: "video" },
   { src: birthdayImg, alt: "Birthday party decoration", category: ["Birthday"] },
   { src: gallery2, alt: "Kids birthday theme decoration", category: ["Birthday"] },
   { src: galleryBirthdayAtharva, alt: "Birthday balloon arch decoration", category: ["Birthday"] },
@@ -72,6 +83,7 @@ const images: { src: string; alt: string; category: Category[] }[] = [
   { src: galleryBirthdayStrawberry, alt: "Strawberry theme birthday party", category: ["Birthday"] },
   { src: galleryLionKing, alt: "Lion King theme birthday", category: ["Birthday"] },
   { src: galleryJungleBirthday, alt: "Jungle safari theme birthday", category: ["Birthday"] },
+  { src: galleryTwinsBirthday, alt: "Twins first birthday celebration", category: ["Birthday"] },
   { src: babyShowerImg, alt: "Baby shower decoration", category: ["Baby Shower"] },
   { src: gallery3, alt: "Naming ceremony decoration", category: ["Baby Shower"] },
   { src: galleryBabyOcean, alt: "Ocean theme baby shower", category: ["Baby Shower"] },
@@ -85,6 +97,8 @@ const images: { src: string; alt: string; category: Category[] }[] = [
   { src: galleryDoorMarigold, alt: "Marigold door entrance decoration", category: ["Others"] },
   { src: galleryRangoli, alt: "Flower rangoli with brass lamp", category: ["Others"] },
   { src: galleryBalloonArt, alt: "Fun balloon art creations", category: ["Others"] },
+  { src: galleryFlowerDoor2, alt: "White and yellow door decoration", category: ["Others"] },
+  { src: galleryRangoliPeacock, alt: "Peacock flower rangoli art", category: ["Others"] },
 ];
 
 const categories: Category[] = ["All", "Wedding", "Birthday", "Baby Shower", "Others"];
@@ -92,7 +106,7 @@ const categories: Category[] = ["All", "Wedding", "Birthday", "Baby Shower", "Ot
 const Gallery = () => {
   const [active, setActive] = useState<Category>("All");
 
-  const filtered = active === "All" ? images : images.filter((img) => img.category.includes(active));
+  const filtered = active === "All" ? items : items.filter((item) => item.category.includes(active));
 
   return (
     <section className="py-16 md:py-24">
@@ -119,16 +133,27 @@ const Gallery = () => {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {filtered.map((img, i) => (
-            <div key={i} className="aspect-square overflow-hidden rounded-lg shadow-card group cursor-pointer">
-              <img
-                src={img.src}
-                alt={img.alt}
-                loading="lazy"
-                width={600}
-                height={600}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
+          {filtered.map((item, i) => (
+            <div key={i} className="aspect-square overflow-hidden rounded-lg shadow-card group cursor-pointer relative">
+              {item.type === "video" ? (
+                <video
+                  src={item.src}
+                  muted
+                  loop
+                  autoPlay
+                  playsInline
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              ) : (
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  loading="lazy"
+                  width={600}
+                  height={600}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              )}
             </div>
           ))}
         </div>
