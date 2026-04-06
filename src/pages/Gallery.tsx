@@ -10,6 +10,16 @@ import gallery2 from "@/assets/gallery-2.jpg";
 import gallery3 from "@/assets/gallery-3.jpg";
 import gallery4 from "@/assets/gallery-4.jpg";
 import heroImg from "@/assets/hero-wedding.jpg";
+import galleryWeddingMandap from "@/assets/gallery-wedding-mandap.jpg";
+import galleryFlowerDoor from "@/assets/gallery-flower-door.jpg";
+import galleryMandapPillars from "@/assets/gallery-mandap-pillars.jpg";
+import galleryGarlands from "@/assets/gallery-garlands.jpg";
+import galleryStageYellow from "@/assets/gallery-stage-yellow.jpg";
+import galleryStageFlowers from "@/assets/gallery-stage-flowers.jpg";
+import galleryDoorMarigold from "@/assets/gallery-door-marigold.jpg";
+import galleryTempleMandap from "@/assets/gallery-temple-mandap.jpg";
+import galleryHouseLights from "@/assets/gallery-house-lights.jpg";
+import galleryGrandMandap from "@/assets/gallery-grand-mandap.jpg";
 
 type Category = "All" | "Wedding" | "Birthday" | "Baby Shower" | "Others";
 
@@ -18,6 +28,13 @@ const images: { src: string; alt: string; category: Category[] }[] = [
   { src: gallery1, alt: "Engagement ceremony decoration", category: ["Wedding"] },
   { src: gallery4, alt: "Grand wedding reception", category: ["Wedding"] },
   { src: heroImg, alt: "Wedding balloon and flower setup", category: ["Wedding"] },
+  { src: galleryWeddingMandap, alt: "Wedding mandap with flower garlands", category: ["Wedding"] },
+  { src: galleryMandapPillars, alt: "Traditional mandap with pillars", category: ["Wedding"] },
+  { src: galleryStageYellow, alt: "Wedding stage with yellow drapes", category: ["Wedding"] },
+  { src: galleryStageFlowers, alt: "Grand stage with flower wall", category: ["Wedding"] },
+  { src: galleryTempleMandap, alt: "Traditional temple style mandap", category: ["Wedding"] },
+  { src: galleryHouseLights, alt: "House decoration with fairy lights", category: ["Wedding"] },
+  { src: galleryGrandMandap, alt: "Grand traditional mandap decoration", category: ["Wedding"] },
   { src: birthdayImg, alt: "Birthday party decoration", category: ["Birthday"] },
   { src: gallery2, alt: "Kids birthday theme decoration", category: ["Birthday"] },
   { src: babyShowerImg, alt: "Baby shower decoration", category: ["Baby Shower"] },
@@ -25,6 +42,9 @@ const images: { src: string; alt: string; category: Category[] }[] = [
   { src: balloonImg, alt: "Balloon arch decoration", category: ["Others"] },
   { src: flowerImg, alt: "Flower arrangement", category: ["Others"] },
   { src: customImg, alt: "Custom theme party", category: ["Others"] },
+  { src: galleryFlowerDoor, alt: "Door flower decoration", category: ["Others"] },
+  { src: galleryGarlands, alt: "Traditional wedding garlands", category: ["Others"] },
+  { src: galleryDoorMarigold, alt: "Marigold door entrance decoration", category: ["Others"] },
 ];
 
 const categories: Category[] = ["All", "Wedding", "Birthday", "Baby Shower", "Others"];
