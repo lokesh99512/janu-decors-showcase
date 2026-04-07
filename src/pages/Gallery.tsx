@@ -50,7 +50,6 @@ type GalleryItem = {
   src: string;
   alt: string;
   category: Category[];
-  type?: "image" | "video";
 };
 
 const items: GalleryItem[] = [
