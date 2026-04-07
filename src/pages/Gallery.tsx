@@ -75,7 +75,7 @@ const items: GalleryItem[] = [
   { src: galleryGreenSofa, alt: "Tropical green leaf sofa decoration", category: ["Wedding"] },
   { src: galleryKrishnaStage, alt: "Krishna theme decoration", category: ["Wedding"] },
   { src: galleryPujaSetup, alt: "Traditional puja ceremony setup", category: ["Wedding"] },
-  { src: "/videos/decoration-showcase.mp4", alt: "Decoration showcase video", category: ["Wedding"], type: "video" },
+  
   { src: birthdayImg, alt: "Birthday party decoration", category: ["Birthday"] },
   { src: gallery2, alt: "Kids birthday theme decoration", category: ["Birthday"] },
   { src: galleryBirthdayAtharva, alt: "Birthday balloon arch decoration", category: ["Birthday"] },
@@ -132,28 +132,35 @@ const Gallery = () => {
           ))}
         </div>
 
+        {/* Video Showcase Section */}
+        <div className="mb-12">
+          <h2 className="text-2xl md:text-3xl font-heading font-bold text-foreground mb-6 text-center">🎬 Video Showcase</h2>
+          <div className="max-w-3xl mx-auto rounded-2xl overflow-hidden shadow-card">
+            <video
+              src="/videos/decoration-showcase.mp4"
+              controls
+              playsInline
+              preload="metadata"
+              poster=""
+              className="w-full aspect-video object-cover"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        {/* Photo Gallery */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {filtered.map((item, i) => (
             <div key={i} className="aspect-square overflow-hidden rounded-lg shadow-card group cursor-pointer relative">
-              {item.type === "video" ? (
-                <video
-                  src={item.src}
-                  muted
-                  loop
-                  autoPlay
-                  playsInline
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              ) : (
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  loading="lazy"
-                  width={600}
-                  height={600}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              )}
+              <img
+                src={item.src}
+                alt={item.alt}
+                loading="lazy"
+                width={600}
+                height={600}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
             </div>
           ))}
         </div>
